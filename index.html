@@ -1,260 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Board Game Database</title>
-    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   
-    <style>
-        h1 {
-            margin-top: 30px;
-            margin-left: 250px;
-        }
-        
-        #showForm {
-            display: none;
-        }
-    </style>
-    
-    <script >
-    //JSON    
-      var json_obj  = { "games": [
-        {
-            "name":"APPLES TO APPLES",
-            "genre":"PARTY",
-            "avg":"30 minutes",
-            "min":"4",
-            "max":"8"
-        },
-        {
-            "name":"AXIS & ALLIES",
-            "genre":"STRATEGY",
-            "avg":"2-8 hours",
-            "min":"2",
-            "max":"6"
-        },
-        {
-            "name":"BETRAYAL AT THE HOUSE ON THE HILL",
-            "genre":"MYSTERY",
-            "avg":"1 hour",
-            "min":"3",
-            "max":"6"
-        },
-        {
-            "name":"CANDY LAND",
-            "genre":"RACE",
-            "avg":"20 minutes",
-            "min":"2",
-            "max":"4"
-        },
-        {
-            "name":"CHINESE CHECKERS",
-            "genre":"STRATEGY",
-            "avg":"30 minutes",
-            "min":"2",
-            "max":"6"
-        },
-        {
-            "name":"COSMIC ENCOUNTER",
-            "genre":"MYSTERY",
-            "avg":"2 hours",
-            "min":"3",
-            "max":"6"
-        },
-        {
-            "name":"DIPLOMACY",
-            "genre":"STRATEGY",
-            "avg":"4-12 hours",
-            "min":"2",
-            "max":"7"
-        },
-        {
-            "name":"EXPLODING KITTENS",
-            "genre":"PARTY",
-            "avg":"15 minutes",
-            "min":"2",
-            "max":"5"
-        },
-        {
-            "name":"GO",
-            "genre":"STRATEGY",
-            "avg":"10 minutes",
-            "min":"2",
-            "max":"2"
-        },
-        {
-            "name":"JUMANJI",
-            "genre":"RACE",
-            "avg":"20 minutes",
-            "min":"2",
-            "max":"4"
-        },
-        {
-            "name":"MONOPOLY",
-            "genre":"MONEY MAKING",
-            "avg":"1-4 hours",
-            "min":"2",
-            "max":"6"
-        },
-        {
-            "name":"MUNCHKIN",
-            "genre":"PARTY",
-            "avg":"9-12 hours",
-            "min":"3",
-            "max":"6"
-        },
-        {
-            "name":"PICTIONARY",
-            "genre":"PARTY",
-            "avg":"30 minutes",
-            "min":"2",
-            "max":"4"
-        },
-        {
-            "name":"RISK",
-            "genre":"STRATEGY",
-            "avg":"1-8 hours",
-            "min":"2",
-            "max":"6"
-        },
-        {
-            "name":"SCRABBLE",
-            "genre":"WORD",
-            "avg":"50 minutes",
-            "min":"2",
-            "max":"4"
-        },
-        {
-            "name":"SETTLERS OF CATAN",
-            "genre":"STRATEGY",
-            "avg":"1-2 hours",
-            "min":"2",
-            "max":"4"
-        },
-        {
-            "name":"SORRY!",
-            "genre":"PARTY",
-            "avg":"30 minutes",
-            "min":"2",
-            "max":"4"
-        },
-        {
-            "name":"THE GAME OF LIFE",
-            "genre":"MONEY",
-            "avg":"1 hour",
-            "min":"2",
-            "max":"6"
-        },
-        {
-            "name":"TRIVIAL PURSUIT",
-            "genre":"TRIVIA",
-            "avg":"1 hour",
-            "min":"2",
-            "max":"6"
-        },
-        {
-            "name":"UNO",
-            "genre":"EDUCATIONAL",
-            "avg":"10 minutes",
-            "min":"2",
-            "max":"10"
-        },
-      ]
-    }
-
-      //JQuery and Javascript
-        $(document).ready(function(){
-            $("#view").click(function(){
-              var number_of_rows = json_obj.games.length;
-              var table_body = '<table class="table table-striped" id="example"><thead><tr><th>Name</th><th>Genre</th><th>Average Play Time</th><th>Minimum Number of Players</th><th>Maximum Number of Players</th></tr></thead><tbody>';
-              for(i =0;i<json_obj.games.length;i++){
-                    table_body+='<tr>';
-                    table_body +='<td>';
-                    table_body +=json_obj.games[i]["name"];
-                    table_body +='</td>';
-                   
-                    table_body +='<td>';
-                    table_body +=json_obj.games[i]["genre"];
-                    table_body +='</td>';
-                  
-                    table_body +='<td>';
-                    table_body +=json_obj.games[i]["avg"];
-                    table_body +='</td>';
-                  
-                    table_body +='<td>';
-                    table_body +=json_obj.games[i]["min"];
-                    table_body +='</td>';
-                  
-                    table_body +='<td>';
-                    table_body +=json_obj.games[i]["max"];
-                    table_body +='</td>';
-                
-                    table_body+='</tr>';
-              }
-            
-                table_body+='</tbody></table>';
-               $('#tableDiv').html(table_body);
-            });
-            
-             $("#add").click(function(){
-                 $("#showForm").toggle('slow');
-             });
-            
-            $("#sub").click(function(){
-                
-             });
-            
-        });
-</script>
+<title>Board Game Database</title>
+<style>
+table {
+border-collapse: collapse;
+width: 100%;
+color: #588c7e;
+font-family: monospace;
+font-size: 16px;
+text-align: left;
+}
+th {
+background-color: #588c7e;
+color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+</style>
 </head>
-    
 <body>
-    <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">CS 226 Example</a>
-        </nav>
-        <h1>Board Games Database</h1>
-    </header>
-    
-    
-    <div style="margin-top: 50px; margin-left: 250px; margin-right: 250px;">
-        <button type="button" class="btn btn-info" id="view">View Games in Database</button>
-        <div id="tableDiv" style="margin-top: 40px"></div>
-    </div>
-    
-    <div style="margin-top: 50px; margin-left: 250px; margin-right: 250px; margin-bottom: 200px;">
-        <button type="button" class="btn btn-primary" id="add">Add Games to Database</button>
-        <div id="addForm" style="margin-top: 40px">
-            <form id="showForm">
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="validationDefault01" id="gameName">Name</label>
-                  <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Name" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label for="validationDefault02" id="gameGenre">Genre</label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Genre" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-4 mb-3">
-                  <label for="validationDefault03" id="gameAvg">Average Play Time</label>
-                  <input type="text" class="form-control" id="validationDefault03" placeholder="Average Play Time" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="validationDefault04">Minimum Number of Players</label>
-                  <input type="text" class="form-control" id="validationDefault04" placeholder="Minimum Number of Players" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="validationDefault05">Maximum Number of Players</label>
-                  <input type="text" class="form-control" id="validationDefault05" placeholder="Maximum Number of Players" required>
-                </div>
-              </div>
-              <button class="btn btn-primary" type="submit" id="sub">Submit form</button>
-            </form>
-        </div>
-    </div>
-    
-    
+<table>
+<tr>
+<th>Name</th>
+<th>Genre</th>
+<th>Average Play Time</th>
+<th>Minimum Players</th>
+<th>Maximum Players</th>
+</tr>
+<?php
+$conn = mysqli_connect("sql3.freemysqlhosting.net", "sql3312835", "A9YbxIja41", "Board Game Database", "3306");
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT 'Name', 'Genre', 'Average Play Time', 'Minimum Players', 'Maximum Players' FROM 'Board Game Database'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["Name"]. "</td><td>" . $row["Genre"] . "</td><td>" . $row["Average Play Time"]. "</td><td>" . $row["Minimum Players"]. "</td><td>" . $row["Maximum Players"]. "</td></tr>";
+    }
+    echo "</table>";
+} else { echo "0 results"; }
+$conn->close();
+?>
+</table>
 </body>
 </html>
